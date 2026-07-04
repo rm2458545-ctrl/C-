@@ -1,4 +1,4 @@
-# 🎮 C语言小游戏合集
+# C语言小游戏
 
 <div align="center">
 
