@@ -9,13 +9,11 @@ echo 按 Ctrl+C 可以停止监控
 echo.
 cd /d D:\Zclaude
 
-:: 检查Git Bash是否可用
-where bash >nul 2>&1
+:: 检查PowerShell是否可用
+where powershell >nul 2>&1
 if %errorlevel% neq 0 (
-    echo 错误：找不到bash命令
-    echo 请确保Git已安装并添加到PATH
-    echo.
-    echo 下载Git: https://git-scm.com/download/win
+    echo 错误：找不到PowerShell
+    echo 请确保系统已安装PowerShell
     pause
     exit /b 1
 )
@@ -26,8 +24,8 @@ if exist .sync-lock (
     del /f .sync-lock 2>nul
 )
 
-:: 启动监控脚本
-bash auto-sync.sh
+:: 启动PowerShell监控脚本
+powershell -ExecutionPolicy Bypass -File auto-sync.ps1
 
 if %errorlevel% neq 0 (
     echo.
